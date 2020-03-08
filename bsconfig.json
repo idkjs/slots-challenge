@@ -9,12 +9,8 @@
   ],
   "package-specs": [
     {
-      "module": "commonjs",
-      "in-source": true
-    },
-    {
       "module": "es6",
-      "in-source": false
+      "in-source": true
     }
   ],
   "suffix": ".bs.js",

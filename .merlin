@@ -1,0 +1,18 @@
+####{BSB GENERATED: NO EDIT
+B lib/bs
+FLG -open SlotsChallenge
+FLG -ppx '/Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-platform/darwin/bsc.exe -as-ppx '
+S /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-platform/lib/ocaml
+B /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-platform/lib/ocaml
+FLG -w +a-4-9-40-41-42-50-61-102
+S /Users/prisc_000/working/GitHub/slots-challenge/node_modules/@glennsl/bs-json/lib/ocaml
+B /Users/prisc_000/working/GitHub/slots-challenge/node_modules/@glennsl/bs-json/lib/ocaml
+S /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-moment/lib/ocaml
+B /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-moment/lib/ocaml
+S /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-knex/lib/ocaml
+B /Users/prisc_000/working/GitHub/slots-challenge/node_modules/bs-knex/lib/ocaml
+S /Users/prisc_000/working/GitHub/slots-challenge/node_modules/@glennsl/bs-jest/lib/ocaml
+B /Users/prisc_000/working/GitHub/slots-challenge/node_modules/@glennsl/bs-jest/lib/ocaml
+S src
+B lib/bs/src
+####BSB GENERATED: NO EDIT}

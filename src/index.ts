@@ -1,1 +1,1 @@
-export * from './Get.gen';
+export {getAvailabilities} from './Get.gen';

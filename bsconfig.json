@@ -27,6 +27,11 @@
     "debug": {
       "all": false
     },
+    "shims": {
+      "Js": "Js",
+      "MomentRe": "Moment",
+      "ReasonPervasives": "ReasonPervasives"
+    },
     "exportInterfaces": true,
     "propTypes": true,
     "fileHeader": "this is a custom header you can add to every file!"

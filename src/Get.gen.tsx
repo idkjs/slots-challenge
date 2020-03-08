@@ -13,7 +13,7 @@ const Curry = require('bs-platform/lib/es6/curry.js');
 // tslint:disable-next-line:no-var-requires
 const GetBS = require('./Get.bs');
 
-import {Date_t as Js_Date_t} from './Js.gen';
+import {Date_t as Js_Date_t} from './Js.shim';
 
 // tslint:disable-next-line:interface-over-type-literal
 export type kind = string;

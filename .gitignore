@@ -4,3 +4,5 @@ node_modules
 dist
 .bsb.lock
 lib/bs/
+.bsb.lock
+.merlin

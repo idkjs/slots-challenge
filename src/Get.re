@@ -1,14 +1,14 @@
-[@genType]
+// [@genType]
 type kind = string;
-[@genType]
+// [@genType]
 type starts = Js.Date.t;
-[@genType]
+// [@genType]
 type ends = Js.Date.t;
-[@genType]
+// [@genType]
 type weekly_recurring = bool;
-[@genType]
+// [@genType]
 type date = Js.Date.t;
-[@genType]
+// [@genType]
 type event = {
   kind,
   starts,
@@ -16,20 +16,20 @@ type event = {
   weekly_recurring,
 };
 
-[@genType]
+// [@genType]
 type availability = {
   date,
   slots: array(string),
 };
-[@genType]
+// [@genType]
 type availabilities = array(availability);
 
-[@genType]
+// [@genType]
 type interval = {
   start: Js.Date.t,
   end_: Js.Date.t,
 };
-[@genType]
+// [@genType]
 type day =
   | Sunday
   | Monday
@@ -38,7 +38,7 @@ type day =
   | Thursday
   | Friday
   | Saturday;
-[@genType]
+// [@genType]
 let dayToJs =
   fun
   | Sunday => 0
@@ -49,14 +49,14 @@ let dayToJs =
   | Friday => 5
   | Saturday => 6;
 
-[@genType]
+// [@genType]
 let is = (day, date) =>
   date |> Js.Date.getDay === (day |> dayToJs |> float_of_int);
 
-[@genType]
+// [@genType]
 let isSaturday = date => date |> is(Saturday);
 
-[@genType]
+// [@genType]
 let decodeEvent: Js.t('a) => event =
   r => {
     let event: event = {
@@ -69,7 +69,7 @@ let decodeEvent: Js.t('a) => event =
     event;
   };
 
-[@genType]
+// [@genType]
 let makeYMD = date => {
   Js.Date.(
     makeWithYMD(
@@ -82,34 +82,34 @@ let makeYMD = date => {
 };
 open MomentRe;
 open Js.Date;
-[@genType]
+// [@genType]
 let copy = date => date->valueOf->fromFloat;
-[@genType]
+// [@genType]
 let toInt = date => date->valueOf->int_of_float;
 
-[@genType]
+// [@genType]
 let addDays = (date, numberOfDays) => {
   let d = date->copy;
   d->setDate(d->getDate +. numberOfDays->float)->ignore;
   d;
 };
 
-[@genType]
+// [@genType]
 let addMinutes = (date, numberOfMinutes) => {
   let d = date->copy;
   d->setMinutes(d->getMinutes +. numberOfMinutes->float)->ignore;
   d;
 };
-[@genType]
+// [@genType]
 let isWithinInterval = (interval, date) => {
   let ts = date |> copy |> Js.Date.getTime;
   ts >= (interval.start |> copy |> Js.Date.getTime)
   && ts < (interval.end_ |> copy |> Js.Date.getTime);
 };
 
-[@genType]
+// [@genType]
 let makeInterval = (start, end_) => {start, end_};
-[@genType]
+// [@genType]
 let makeResult = (r, date): availabilities => {
   // need to get availabilites for the 7 days in the range
   // let rangeStartDate = date;
@@ -171,7 +171,7 @@ let makeResult = (r, date): availabilities => {
 
     formattedApptSlots;
   };
-  [@genType]
+  // [@genType]
   let generateSlots = (~eventToCheck) => {
     let formattedSlots = [||];
     let {starts, ends, _} = eventToCheck;
@@ -244,7 +244,8 @@ open Sqlite3;
 
 let db = Database.make(~path="db.sqlite", ~fileMustExist=true, ());
 [@genType]
-let getAvailabilities = date => {
+
+let getAvailabilities:(date=>availabilities) = date => {
   let makeResultWithDate = makeResult(_, date);
 
   let data = db->Database.prepare("select * from `events`")->Statement.all();
